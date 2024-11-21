@@ -13,4 +13,18 @@ async function testPatchRequest() {
   }
 }
 
-testPatchRequest();
+async function testPutSubjectRequest() {
+  try{
+    console.log('jj')
+    const response = await axios.put('http://localhost:3000/user', {
+      id: 1,
+      subjectIds: [1, 2, 3, 4]
+    });
+    console.log('Response data:', response.data);
+  } catch(error){
+    console.error(error)
+  }
+}
+(async ()=>{
+await testPutSubjectRequest();
+})
